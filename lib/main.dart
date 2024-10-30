@@ -1,10 +1,17 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:todo_app/pages/home_page.dart';
+import 'package:todo_app/pages/splash_screen.dart';
+import 'package:todo_app/services/todo_service.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  final todoService = TodoService();
+  await todoService.checkAndDeleteOldTasks();
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -19,7 +26,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData().copyWith(
           textTheme: GoogleFonts.latoTextTheme(Theme.of(context).textTheme),
         ),
-        home: const HomePage(),
+        home: const SplashScreen(),
       ),
     );
   }
