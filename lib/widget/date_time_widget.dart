@@ -28,30 +28,29 @@ class DateTimeWidget extends ConsumerWidget {
             style: AppStyle.headingOne,
           ),
           const Gap(6),
-          Material(
-            child: Ink(
-              decoration: BoxDecoration(
-                color: Colors.grey.shade200,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(10),
-                onTap: () => onTap(),
-                child: Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
-                    vertical: 12,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                  child: Row(
-                    children: [
-                      Icon(iconSection),
-                      const Gap(6),
-                      Text(valueText),
-                    ],
-                  ),
+          Ink(
+            decoration: BoxDecoration(
+              color: Colors.blueGrey.shade200,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(10),
+              onTap: () => onTap(),
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 12,
+                ),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.blue.withOpacity(0),
+                ),
+                child: Row(
+                  children: [
+                    Icon(iconSection),
+                    const Gap(6),
+                    Text(valueText),
+                  ],
                 ),
               ),
             ),
