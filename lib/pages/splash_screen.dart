@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
       body: Center(
         child: LoadingAnimationWidget.threeArchedCircle(
           color: Colors.black,
-          size: 150,
+          size: 75,
         ),
       ),
     );

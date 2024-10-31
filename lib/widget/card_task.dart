@@ -37,7 +37,7 @@ class _CardToDoListState extends ConsumerState<CardToDoList> {
         }
 
         return Container(
-          margin: EdgeInsets.all(10.0),
+          margin: EdgeInsets.only(left: 5, right: 5, top: 5, bottom: 5),
           // width: double.infinity,
           height: 140,
           decoration: BoxDecoration(
@@ -58,7 +58,7 @@ class _CardToDoListState extends ConsumerState<CardToDoList> {
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
+                    horizontal: 8,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -115,12 +115,15 @@ class _CardToDoListState extends ConsumerState<CardToDoList> {
                                 thickness: 1.5,
                                 color: Colors.grey.shade200,
                               ),
-                              Row(
-                                children: [
-                                  Text("Today"),
-                                  Gap(12),
-                                  Text(todoData1[widget.getIndex].timeTask),
-                                ],
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Row(
+                                  children: [
+                                    Text("Today"),
+                                    Gap(12),
+                                    Text(todoData1[widget.getIndex].timeTask),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

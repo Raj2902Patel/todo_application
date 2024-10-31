@@ -52,7 +52,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'DO YOU REALLY WANT TO \nEXIT THE APP?',
+                    'Quit The Application?',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 22,
@@ -190,45 +190,48 @@ class _HomePageState extends ConsumerState<HomePage> {
                     onPressed: () => showDialog(
                       barrierDismissible: false,
                       context: context,
-                      builder: (BuildContext context) => Dialog(
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                "No Notifications!",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 20.0,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor:
-                                      Colors.black.withOpacity(0.5),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12.0),
-                                  ),
-                                ),
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                child: const Text(
-                                  "Okay",
+                      builder: (BuildContext context) => PopScope(
+                        canPop: false,
+                        child: Dialog(
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  "No Notifications!",
                                   style: TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 20.0,
                                   ),
                                 ),
-                              ),
-                            ],
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor:
+                                        Colors.black.withOpacity(0.5),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(12.0),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.pop(context);
+                                  },
+                                  child: const Text(
+                                    "Okay",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 20.0,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -325,8 +328,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                             child: Text("No Data Found!"),
                           )
                         : Container(
-                            padding: EdgeInsets.only(bottom: 30),
-                            height: MediaQuery.of(context).size.height * 0.8,
+                            padding: EdgeInsets.only(bottom: 5),
+                            // height: MediaQuery.of(context).size.height * 0.9,
                             child: ListView.builder(
                               itemCount: todoData1.value?.length ?? 0,
                               shrinkWrap: true,
